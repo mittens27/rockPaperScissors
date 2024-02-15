@@ -3,14 +3,13 @@ const paperBtn = document.querySelector('#paperBtn');
 const scissorsBtn = document.querySelector('#scissorsBtn');
 
 rockBtn.addEventListener('click', playRound);
-    var userChoice = "rock";
 
 paperBtn.addEventListener('click', playRound);
-    var userChoice = "paper";
 
 scissorsBtn.addEventListener('click', playRound);
-    var userChoice = "scissors";
 
+const choices = document.querySelector('#choices');
+const results = document.querySelector('#results');
 
 
 var outcomes = {
@@ -36,12 +35,20 @@ var userScore = 0;
 var computerScore = 0;
 
 /*for (var i = 1; i <= rounds; i++) {*/
-
-
-    /*var userChoice = prompt("Do you choose rock, paper, or scissors?");
-    userChoice = userChoice.toLowerCase();*/
-
 function playRound() {
+
+    var userChoice;
+
+    if (event.target.id === "rockBtn") {
+        userChoice = "rock";
+    } else if (event.target.id === "paperBtn") {
+        userChoice = "paper";
+    } else if (event.target.id === "scissorsBtn") {
+        userChoice = "scissors";
+    }
+
+
+
     var computerChoice = Math.random();
     if (computerChoice < 0.34) {
         computerChoice = "rock";
@@ -65,11 +72,10 @@ function playRound() {
         computerScore++;
     }
 
-    console.log("You chose: " + userChoice);
-    console.log("The computer chose: " + computerChoice);
+    choices.textContent = ("You chose: " + userChoice) + (" ----- " + "The computer chose: " + computerChoice);
     var outcome = outcomes[userChoice][computerChoice];
-    console.log(outcome);
-    console.log("Round " + i + ": You have " + userScore + " points, and the computer has " + computerScore + " points.");
+    results.textContent = (outcome);
+    /*console.log("Round " + i + ": You have " + userScore + " points, and the computer has " + computerScore + " points.");*/
 }
 
 
