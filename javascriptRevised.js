@@ -20,7 +20,7 @@ var rounds = 5;
 var userScore = 0;
 var computerScore = 0;
 
-for (let i = 0; i <= rounds; i++);
+for (var i = 1; i <= rounds; i++) {
 
     var userChoice = prompt("Do you choose rock, paper, or scissors?");
     userChoice = userChoice.toLowerCase();
@@ -52,5 +52,6 @@ for (let i = 0; i <= rounds; i++);
     var outcome = outcomes[userChoice][computerChoice];
     console.log(outcome);
     console.log("Round " + i + ": You have " + userScore + " points, and the computer has " + computerScore + " points.");
+}
 
 
