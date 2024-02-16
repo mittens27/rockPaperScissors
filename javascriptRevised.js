@@ -8,8 +8,13 @@ paperBtn.addEventListener('click', playRound);
 
 scissorsBtn.addEventListener('click', playRound);
 
-const choices = document.querySelector('#choices');
+const userChoices = document.querySelector('#userChoices');
+const compChoices = document.querySelector('#compChoices');
+
 const results = document.querySelector('#results');
+
+const scoreUser = document.querySelector('#userScore');
+const scoreComp = document.querySelector('#compScore');
 
 
 var outcomes = {
@@ -72,9 +77,12 @@ function playRound() {
         computerScore++;
     }
 
-    choices.textContent = ("You chose: " + userChoice) + (" ----- " + "The computer chose: " + computerChoice);
+    userChoices.textContent = ("You chose: " + userChoice);
+    compChoices.textContent = ("The computer chose: " + computerChoice);
     var outcome = outcomes[userChoice][computerChoice];
     results.textContent = (outcome);
+    scoreUser.textContent = ("Player Score - " + userScore);
+    scoreComp.textContent = ("Computer Score - " + computerScore);
     /*console.log("Round " + i + ": You have " + userScore + " points, and the computer has " + computerScore + " points.");*/
 }
 
